@@ -15,6 +15,33 @@ export default {
   components: {
     // 2. Register component here:
     Header
+  },
+  data() { // data is a func that returns obj
+    return {
+      tasks: []
+    }
+  },
+  created() {
+    this.tasks = [
+      {
+        id: 1,
+        text: "aaaa",
+        day: "Monday",
+        reminder: true
+      },
+      {
+        id: 2,
+        text: "bbbb",
+        day: "Tuesday",
+        reminder: false
+      },
+      {
+        id: 3,
+        text: "Cccc",
+        day: "Wendsday",
+        reminder: true
+      }
+    ]
   }
 }
 </script>

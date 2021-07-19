@@ -7,7 +7,10 @@
 <script>
 export default {
   name: "Header",
-  props: ['title']
+  // props: ['title']    OR:
+  props: {
+    title: String, //you can verify specific type
+  }
 }
 </script>
 

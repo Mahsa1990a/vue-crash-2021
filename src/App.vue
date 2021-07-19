@@ -1,7 +1,7 @@
 <template>
 <div class="container">
   <!-- 3. embed it here -->
-  <Header />
+  <Header title="Task Tracker" />
 </div>
 </template>
 

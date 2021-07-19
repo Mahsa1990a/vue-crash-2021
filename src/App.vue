@@ -1,15 +1,20 @@
 <template>
 <div class="container">
-  <h1> Hello World!!!</h1>
+  <!-- 3. embed it here -->
+  <Header />
 </div>
 </template>
 
 <script>
+// 1. import component here
+import Header from './components/Header.vue';
 
 export default {
+
   name: 'App',
   components: {
-    
+    // 2. Register component here:
+    Header
   }
 }
 </script>

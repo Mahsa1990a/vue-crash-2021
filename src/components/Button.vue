@@ -1,5 +1,5 @@
 <template>
-<!-- btn class is in style of App.vue  // : is v-bin // v-on is for click event with onClick function-->
+<!-- btn class is in style of App.vue  // : is v-bin // v-on is for click event with onClick function or use @-->
   <button @click="onClick()" :style="{ background: color }" class="btn">{{ text }}</button>
 </template>
 
@@ -9,6 +9,11 @@ export default {
   props: {
     text: String,
     color: String
+  },
+  methods: {
+    onClick() {
+      console.log('Clicked!');
+    }
   }
 }
 </script>

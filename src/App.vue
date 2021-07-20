@@ -1,7 +1,7 @@
 <template>
 <div class="container">
   <!-- 3. embed it here -->
-  <Header title="Task Tracker" />
+  <Header @toggle-add-task='toggleAddTask' title="Task Tracker" />
   <div v-if="showAddTask">
     <AddTask @add-task='addTask' />
   </div>
@@ -34,6 +34,9 @@ export default {
     }
   },
   methods: {
+    toggleAddTask() {
+     this.showAddTask = !this.showAddTask; 
+    },
     addTask(task) { // task is coming from newTask in AddTask component
       // sread across the current tasks(...this.tasks) and add new one(task) on to it
       this.tasks = [...this.tasks, task]

@@ -62,8 +62,9 @@ export default {
       return data;
     }
   },
-  created() {
-    this.tasks = this.fetchTasks(); // UPDATED hard coded arr with this.fetchTasks
+  //this.fetchTasks() returns promis, so we need to have async await
+  async created() {
+    this.tasks = await this.fetchTasks(); // UPDATED hard coded arr with this.fetchTasks
   }
 }
 </script>

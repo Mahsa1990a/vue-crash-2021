@@ -1,9 +1,11 @@
 <template>
   <!-- here we want to taking an arr and loop through them and output single task component for each one-->
   <!-- v-for we can loop through something -->
-<div v-for="task in tasks">
-  <h3>{{ task.text }}</h3>
-</div>
+  <div>
+    <div v-for='task in tasks' :key="task.id">
+      <h3>{{ task.text }}</h3>
+    </div>
+  </div>
 </template>
 
 <script>

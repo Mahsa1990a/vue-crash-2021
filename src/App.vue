@@ -2,7 +2,7 @@
 <div class="container">
   <!-- 3. embed it here -->
   <Header title="Task Tracker" />
-  <Tasks :tasks="tasksss"/>
+  <Tasks :tasks="tasks"/>
 </div>
 </template>
 
@@ -21,11 +21,11 @@ export default {
   },
   data() { // data is a func that returns obj
     return {
-      tasksss: []
+      tasks: []
     }
   },
   created() {
-    this.tasksss = [
+    this.tasks = [
       {
         id: 1,
         text: "aaaa",

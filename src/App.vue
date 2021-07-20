@@ -2,6 +2,8 @@
 <div class="container">
   <!-- 3. embed it here -->
   <Header title="Task Tracker" />
+  <AddTask />
+
   <!-- @delete-task= we're gonna have new method named deleteTask -->
   <Tasks @toggle-reminder="toggleReminder" 
     @delete-task='deleteTask' :tasks="tasks"/>
@@ -12,6 +14,7 @@
 // 1. import component here
 import Header from './components/Header.vue';
 import Tasks from './components/Tasks.vue';
+import AddTask from './components/AddTask.vue';
 
 export default {
 
@@ -19,7 +22,8 @@ export default {
   components: {
     // 2. Register component here:
     Header,
-    Tasks
+    Tasks,
+    AddTask
   },
   data() { // data is a func that returns obj
     return {

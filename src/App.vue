@@ -2,8 +2,8 @@
 <div class="container">
   <!-- 3. embed it here -->
   <Header title="Task Tracker" />
-  <!-- @delete-task= will emit and we're gonna have new method named deleteTask -->
-  <Tasks @delete-task="$emit('deleteTask')" :tasks="tasks"/>
+  <!-- @delete-task= we're gonna have new method named deleteTask -->
+  <Tasks @delete-task='deleteTask' :tasks="tasks"/>
 </div>
 </template>
 

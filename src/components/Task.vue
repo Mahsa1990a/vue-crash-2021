@@ -19,7 +19,7 @@ export default {
     onDelete(id) {
       // console.log(id);
       // we wanna emit upwards into App.vue to delete data there: //we're emiting custome event here
-      this.$emit('delete-task', id); // delete-task: whatever name we want, id as a param
+      this.$emit('delete-task', id); // delete-task: whatever name we want(custom event), id as a param
     }
   }
 }

@@ -53,29 +53,17 @@ export default {
       // console.log("Id", id); after dbclick on each task shows id
       //updating tasks // if this task.id === id condition is T => update reminder to be opposite of task reminder, else just return task
       this.tasks = this.tasks.map(task => task.id === id ? {...task, reminder: !task.reminder} : task)
+    },
+
+    // After adding json-server
+    async fetchTasks() {
+      const response = await fetch('http://localhost:42115/tasks');
+      const data = await response.json();
+      return data;
     }
   },
   created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: "aaaa",
-        day: "Monday",
-        reminder: true
-      },
-      {
-        id: 2,
-        text: "bbbb",
-        day: "Tuesday",
-        reminder: false
-      },
-      {
-        id: 3,
-        text: "Cccc",
-        day: "Wendsday",
-        reminder: true
-      }
-    ]
+    this.tasks = this.fetchTasks(); // UPDATED hard coded arr with this.fetchTasks
   }
 }
 </script>

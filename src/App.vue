@@ -29,8 +29,10 @@ export default {
     deleteTask(id) {
       // console.log("Task", id);
       // console.log("this.tasks:", this.tasks) //3 arrays
-      this.tasks = this.tasks.filter(task => task.id !== id)//we want reset this.tasks to something else
-      // we wanna return everything back, except tasks with that id, because we're deleting that task
+      if (confirm("Are you sure?!")) { // to give us warning while deleting
+        this.tasks = this.tasks.filter(task => task.id !== id)//we want reset this.tasks to something else
+        // we wanna return everything back, except tasks with that id, because we're deleting that task
+      }
     }
   },
   created() {

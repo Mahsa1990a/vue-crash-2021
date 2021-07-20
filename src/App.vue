@@ -54,13 +54,20 @@ export default {
       this.tasks = [...this.tasks, data]
     },
 
-    deleteTask(id) {
+    async deleteTask(id) {
+      if (confirm("Are you sure?")) {
+        const res = await fetch(`api/tasks/${id}`, {
+          method: 'DELETE',
+        });
+        res.status === 200 ? (this.tasks = this.tasks.filter(task => task.id !== id)) : alert("Error deleting task");
+      }
+
       // console.log("Task", id);
       // console.log("this.tasks:", this.tasks) //3 arrays
-      if (confirm("Are you sure?!")) { // to give us warning while deleting
-        this.tasks = this.tasks.filter(task => task.id !== id)//we want reset this.tasks to something else
-        // we wanna return everything back, except tasks with that id, because we're deleting that task
-      }
+      // if (confirm("Are you sure?!")) { // to give us warning while deleting
+      //   this.tasks = this.tasks.filter(task => task.id !== id)//we want reset this.tasks to something else
+      //   // we wanna return everything back, except tasks with that id, because we're deleting that task
+      // }
     },
 
     toggleReminder(id) {

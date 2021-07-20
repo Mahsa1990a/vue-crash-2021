@@ -57,13 +57,15 @@ export default {
 
     // After adding json-server
     async fetchTasks() {
-      const response = await fetch('http://localhost:42115/tasks');
+      // const response = await fetch('http://localhost:42115/tasks');
+      const response = await fetch('api/tasks');
       const data = await response.json();
       return data;
     },
     // Fetch specific task
     async fetchTask(id) {
-      const response = await fetch(`http://localhost:42115/tasks/${id}`);
+      // const response = await fetch(`http://localhost:42115/tasks/${id}`);
+      const response = await fetch(`api/tasks/${id}`);
       const data = await response.json();
       return data;
     }

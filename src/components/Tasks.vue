@@ -3,14 +3,20 @@
   <!-- v-for we can loop through something // outer div is for getting rid of err-->
   <div>
     <div v-for='task in tasks' :key="task.id">
-      <h3>{{ task.text }}</h3>
+      <!-- <h3>{{ task.text }}</h3> -->
+      <Task :task="task"/>
     </div>
   </div>
 </template>
 
 <script>
+import Task from './Task.vue';
+
 export default {
   name: 'Tasks',
+  components: {
+    Task
+  },
   // we wanna take in tasks arr as prop
   props: {
     tasks: Array

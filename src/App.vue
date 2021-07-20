@@ -2,19 +2,25 @@
 <div class="container">
   <!-- 3. embed it here -->
   <Header @toggle-add-task='toggleAddTask' title="Task Tracker" :showAddTask='showAddTask' />
+  
   <div v-if="showAddTask">
     <AddTask @add-task='addTask' />
   </div>
 
   <!-- @delete-task= we're gonna have new method named deleteTask -->
   <Tasks @toggle-reminder="toggleReminder" 
-    @delete-task='deleteTask' :tasks="tasks"/>
+    @delete-task='deleteTask' :tasks="tasks"
+  />
+
+  <Footer />
 </div>
+
 </template>
 
 <script>
 // 1. import component here
 import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 import Tasks from './components/Tasks.vue';
 import AddTask from './components/AddTask.vue';
 
@@ -24,6 +30,7 @@ export default {
   components: {
     // 2. Register component here:
     Header,
+    Footer,
     Tasks,
     AddTask
   },

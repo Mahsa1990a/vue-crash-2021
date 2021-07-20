@@ -2,7 +2,9 @@
 <div class="container">
   <!-- 3. embed it here -->
   <Header title="Task Tracker" />
-  <AddTask @add-task='addTask' />
+  <div v-if="showAddTask">
+    <AddTask @add-task='addTask' />
+  </div>
 
   <!-- @delete-task= we're gonna have new method named deleteTask -->
   <Tasks @toggle-reminder="toggleReminder" 
@@ -27,7 +29,8 @@ export default {
   },
   data() { // data is a func that returns obj
     return {
-      tasks: []
+      tasks: [],
+      showAddTask: false // by default: F // after pressing Add Task button want to show or not show the form
     }
   },
   methods: {

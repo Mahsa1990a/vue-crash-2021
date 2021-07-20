@@ -1,5 +1,5 @@
 <template>
-  <form class="add-form">
+  <form @submit="onSubmit" class="add-form">
     <div class="form-control">
       <label>Task</label>
       <input type="text" v-model="text" name="text" placeholder="Add Task" />
@@ -32,6 +32,29 @@ export default {
       day: '',
       reminder: false
       // then we wanna bind this values to the inputes, we'll do it with directivr: v-model
+    }
+  },
+  methods: {
+    onSubmit(event) {
+      event.preventDefault();
+
+      if (!this.text) {
+        alert("Plz add a task");
+        return;
+      }
+      // else create newTask
+      const newTask = {
+        id: Math.floor(Math.random() * 100000),
+        text: this.text,
+        day: this.day,
+        reminder: this.reminder
+      };
+      console.log("newTask:", newTask); // we'll see new obj with data that we filled in
+
+      //clear the form
+      this.text = '';
+      this.day = '';
+      this.reminder = false;
     }
   }
 }

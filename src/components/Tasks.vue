@@ -4,7 +4,8 @@
   <div>
     <div v-for='task in tasks' :key="task.id">
       <!-- <h3>{{ task.text }}</h3> // @delete-task= will emit up one level -->
-      <Task @delete-task="$emit('delete-task', task.id)" :task="task"/>
+      <Task @toggle-reminder="$emit('toggle-reminder', task.id)" 
+        @delete-task="$emit('delete-task', task.id)" :task="task"/>
     </div>
   </div>
 </template>
@@ -24,7 +25,7 @@ export default {
   methods: {
     
   },
-  emits: ['delete-task']
+  emits: ['delete-task', 'toggle-reminder']
 }
 </script>
 

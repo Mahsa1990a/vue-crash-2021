@@ -60,8 +60,15 @@ export default {
       const response = await fetch('http://localhost:42115/tasks');
       const data = await response.json();
       return data;
+    },
+    // Fetch specific task
+    async fetchTask(id) {
+      const response = await fetch(`http://localhost:42115/tasks/${id}`);
+      const data = await response.json();
+      return data;
     }
   },
+
   //this.fetchTasks() returns promis, so we need to have async await
   async created() {
     this.tasks = await this.fetchTasks(); // UPDATED hard coded arr with this.fetchTasks

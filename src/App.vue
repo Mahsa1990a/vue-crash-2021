@@ -2,7 +2,8 @@
 <div class="container">
   <!-- 3. embed it here -->
   <Header title="Task Tracker" />
-  <Tasks :tasks="tasks"/>
+  <!-- @delete-task= will emit and we're gonna have new method named deleteTask -->
+  <Tasks @delete-task="$emit('deleteTask')" :tasks="tasks"/>
 </div>
 </template>
 
@@ -22,6 +23,11 @@ export default {
   data() { // data is a func that returns obj
     return {
       tasks: []
+    }
+  },
+  methods: {
+    deleteTask(id) {
+      console.log("Task", id)
     }
   },
   created() {

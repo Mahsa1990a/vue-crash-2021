@@ -13,7 +13,8 @@ export default {
   methods: {
     onClick() {
       // console.log('Clicked!');
-      this.$emit('toggle-add-task')
+      // this.$emit('toggle-add-task') UPDATE it to be reusable for other projects
+      this.$emit('btn-click')
     }
   }
 }

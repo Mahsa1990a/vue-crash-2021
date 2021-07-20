@@ -2,19 +2,20 @@
   <form class="add-form">
     <div class="form-control">
       <label>Task</label>
-      <input type="text" name="text" placeholder="Add Task" />
+      <input type="text" v-model="text" name="text" placeholder="Add Task" />
     </div>
     <div class="form-control">
       <label>Day & Time</label>
       <input
         type="text"
+        v-model="day"
         name="day"
         placeholder="Add Day & Time"
       />
     </div>
     <div class="form-control form-control-check">
       <label>Set Reminder</label>
-      <input type="checkbox" name="reminder" />
+      <input type="checkbox" v-model="reminder" name="reminder" />
     </div>
 
     <input type="submit" value="Save Task" class="btn btn-block" />
@@ -24,7 +25,15 @@
 <script>
 export default {
   name: "AddTask",
-
+  data() {
+    return { // we'll have text, day and reminder as data
+      // we put values as default
+      text: '',
+      day: '',
+      reminder: false
+      // then we wanna bind this values to the inputes, we'll do it with directivr: v-model
+    }
+  }
 }
 </script>
 

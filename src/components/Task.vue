@@ -1,9 +1,11 @@
 <template>
 <!-- <div class="task"> UPDATE TO: have condition for reminder and add task at the end as well-->
-<div :class="[task.reminder ? 'reminder' : '', 'task']">
+<div @dblclick="$emit('toggle-reminder', task.id)"
+  :class="[task.reminder ? 'reminder' : '', 'task']">
   <h3>{{ task.text }}
     <!-- we wanna be able to delete with clicking this icon: -->
-    <i @click="onDelete(task.id)" class="fas fa-times"></i>
+    <!-- <i @click="onDelete(task.id)" class="fas fa-times"></i> UPDATE: -->
+    <i @click="$emit('delete-task', task.id)" class="fas fa-times"></i>
   </h3>
   <p>{{ task.day }}</p>
 </div>
@@ -15,13 +17,13 @@ export default {
   props: {
     task: Object
   },
-  methods: {
-    onDelete(id) {
-      // console.log(id);
-      // we wanna emit upwards into App.vue to delete data there: //we're emiting custome event here
-      this.$emit('delete-task', id); // delete-task: whatever name we want(custom event), id as a param
-    }
-  }
+  // methods: {       we put emit in the same line for i tag
+  //   onDelete(id) {
+  //     // console.log(id);
+  //     // we wanna emit upwards into App.vue to delete data there: //we're emiting custome event here
+  //     this.$emit('delete-task', id); // delete-task: whatever name we want(custom event), id as a param
+  //   }
+  // }
 }
 </script>
 

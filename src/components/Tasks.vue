@@ -3,8 +3,8 @@
   <!-- v-for we can loop through something // outer div is for getting rid of err-->
   <div>
     <div v-for='task in tasks' :key="task.id">
-      <!-- <h3>{{ task.text }}</h3> -->
-      <Task :task="task"/>
+      <!-- <h3>{{ task.text }}</h3> // @delete-task= will emit up one level -->
+      <Task @delete-task="$emit('delete-task', task.id)" :task="task"/>
     </div>
   </div>
 </template>

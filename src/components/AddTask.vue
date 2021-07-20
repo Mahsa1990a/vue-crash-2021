@@ -49,7 +49,9 @@ export default {
         day: this.day,
         reminder: this.reminder
       };
-      console.log("newTask:", newTask); // we'll see new obj with data that we filled in
+      // console.log("newTask:", newTask); // we'll see new obj with data that we filled in // UPDATE:
+      // We wanna emit it one level up to main App:
+      this.$emit('add-task', newTask);
 
       //clear the form
       this.text = '';

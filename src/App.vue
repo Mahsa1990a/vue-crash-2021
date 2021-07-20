@@ -2,7 +2,7 @@
 <div class="container">
   <!-- 3. embed it here -->
   <Header title="Task Tracker" />
-  <AddTask />
+  <AddTask @add-task='addTask' />
 
   <!-- @delete-task= we're gonna have new method named deleteTask -->
   <Tasks @toggle-reminder="toggleReminder" 
@@ -31,6 +31,10 @@ export default {
     }
   },
   methods: {
+    addTask(task) { // task is coming from newTask in AddTask component
+      // sread across the current tasks(...this.tasks) and add new one(task) on to it
+      this.tasks = [...this.tasks, task]
+    },
     deleteTask(id) {
       // console.log("Task", id);
       // console.log("this.tasks:", this.tasks) //3 arrays

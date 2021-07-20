@@ -23,7 +23,8 @@ export default {
   },
   methods: {
     
-  }
+  },
+  emits: ['delete-task']
 }
 </script>
 

@@ -3,7 +3,8 @@
   <!-- 3. embed it here -->
   <Header title="Task Tracker" />
   <!-- @delete-task= we're gonna have new method named deleteTask -->
-  <Tasks @delete-task='deleteTask' :tasks="tasks"/>
+  <Tasks @toggle-reminder="toggleReminder" 
+    @delete-task='deleteTask' :tasks="tasks"/>
 </div>
 </template>
 
@@ -33,6 +34,11 @@ export default {
         this.tasks = this.tasks.filter(task => task.id !== id)//we want reset this.tasks to something else
         // we wanna return everything back, except tasks with that id, because we're deleting that task
       }
+    },
+    toggleReminder(id) {
+      // console.log("Id", id); after dbclick on each task shows id
+      //updating tasks // if this task.id === id condition is T => update reminder to be opposite of task reminder, else just return task
+      this.tasks = this.tasks.map(task => task.id === id ? {...task, reminder: !task.reminder} : task)
     }
   },
   created() {

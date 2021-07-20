@@ -70,10 +70,26 @@ export default {
       // }
     },
 
-    toggleReminder(id) {
+    async toggleReminder(id) {
+
+      const taskToToggle = await this.fetchTask(id); //it will get the actual task we want to toggle
+      const updateTask = {...taskToToggle, reminder: !taskToToggle.reminder};
+
+      const res = await fetch(`api/tasks/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-type': "application/json"
+        },
+        body: JSON.stringify(updateTask)
+      });
+
+      const data = await res.json();
       // console.log("Id", id); after dbclick on each task shows id
       //updating tasks // if this task.id === id condition is T => update reminder to be opposite of task reminder, else just return task
-      this.tasks = this.tasks.map(task => task.id === id ? {...task, reminder: !task.reminder} : task)
+      this.tasks = this.tasks.map(task => 
+        // task.id === id ? {...task, reminder: !task.reminder} : task    UPDATE
+        task.id === id ? {...task, reminder: data.reminder} : task
+      )
     },
 
     // After adding json-server

@@ -2,27 +2,30 @@
 <div class="container">
   <!-- 3. embed it here -->
   <Header title="Task Tracker" />
+  <Tasks :tasks="tasksss"/>
 </div>
 </template>
 
 <script>
 // 1. import component here
 import Header from './components/Header.vue';
+import Tasks from './components/Tasks.vue';
 
 export default {
 
   name: 'App',
   components: {
     // 2. Register component here:
-    Header
+    Header,
+    Tasks
   },
   data() { // data is a func that returns obj
     return {
-      tasks: []
+      tasksss: []
     }
   },
   created() {
-    this.tasks = [
+    this.tasksss = [
       {
         id: 1,
         text: "aaaa",

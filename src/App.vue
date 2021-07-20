@@ -34,13 +34,26 @@ export default {
     }
   },
   methods: {
+
     toggleAddTask() {
      this.showAddTask = !this.showAddTask; 
     },
-    addTask(task) { // task is coming from newTask in AddTask component
-      // sread across the current tasks(...this.tasks) and add new one(task) on to it
-      this.tasks = [...this.tasks, task]
+
+    async addTask(task) { // task is coming from newTask in AddTask component
+
+      const res = await fetch('api/tasks', { //it's a POST request, so we need second argument
+        method: 'POST',
+        headers: {
+          'Content-type': "application/json"
+        },
+        body: JSON.stringify(task)
+      });
+      const data = await res.json(); //will give new task back
+      // spread across the current tasks(...this.tasks) and add new one(task) on to it
+      // this.tasks = [...this.tasks, task] update to:
+      this.tasks = [...this.tasks, data]
     },
+
     deleteTask(id) {
       // console.log("Task", id);
       // console.log("this.tasks:", this.tasks) //3 arrays
@@ -49,6 +62,7 @@ export default {
         // we wanna return everything back, except tasks with that id, because we're deleting that task
       }
     },
+
     toggleReminder(id) {
       // console.log("Id", id); after dbclick on each task shows id
       //updating tasks // if this task.id === id condition is T => update reminder to be opposite of task reminder, else just return task

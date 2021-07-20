@@ -44,7 +44,7 @@ export default {
       }
       // else create newTask
       const newTask = {
-        id: Math.floor(Math.random() * 100000),
+        // id: Math.floor(Math.random() * 100000), don't need it anymore, server is creating new ids by itself
         text: this.text,
         day: this.day,
         reminder: this.reminder

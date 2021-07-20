@@ -1,5 +1,6 @@
 <template>
-<div class="task">
+<!-- <div class="task"> UPDATE TO: have condition for reminder and add task at the end as well-->
+<div :class="[task.reminder ? 'reminder' : '', 'task']">
   <h3>{{ task.text }}
     <i class="fas fa-times"></i>
   </h3>
